@@ -1,4 +1,6 @@
 package TaskManangement.demo.service.impl;
 
-public class TaskServiceImpl {
+import TaskManangement.demo.service.TaskService;
+
+public class TaskServiceImpl implements TaskService {
 }

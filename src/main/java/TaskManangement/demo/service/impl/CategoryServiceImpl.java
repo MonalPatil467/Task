@@ -1,4 +1,6 @@
 package TaskManangement.demo.service.impl;
 
-public class CategoryServiceImpl {
+import TaskManangement.demo.service.CategoryService;
+
+public class CategoryServiceImpl implements CategoryService {
 }

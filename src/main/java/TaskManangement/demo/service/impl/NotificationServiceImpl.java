@@ -1,4 +1,6 @@
 package TaskManangement.demo.service.impl;
 
-public class NotificationServiceImpl {
+import TaskManangement.demo.service.NotificationService;
+
+public class NotificationServiceImpl implements NotificationService {
 }
