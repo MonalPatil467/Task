@@ -1,14 +1,18 @@
 package TaskManangement.demo.service.impl;
 
+import TaskManangement.demo.Mapper.UserMapper;
+import TaskManangement.demo.dto.UserDTO;
 import TaskManangement.demo.entity.User;
 import TaskManangement.demo.repository.UserRepository;
 import TaskManangement.demo.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
+
 
     private final UserRepository userRepository;
 
@@ -17,29 +21,36 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public UserDTO createUser(UserDTO userDTO) {
+        User user = UserMapper.toEntity(userDTO);
+        return UserMapper.toDTO(userRepository.save(user));
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserDTO> getAllUsers() {
+        return userRepository.findAll()
+                .stream()
+                .map(UserMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public User getUserById(Long id) {
-        return userRepository.findById(id)
+    public UserDTO getUserById(Long id) {
+        User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
+
+        return UserMapper.toDTO(user);
     }
 
     @Override
-    public User updateUser(Long id, User updatedUser) {
-        User user = getUserById(id);
+    public UserDTO updateUser(Long id, UserDTO updatedUserDTO) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
-        user.setName(updatedUser.getName());
-        user.setEmail(updatedUser.getEmail());
+        user.setName(updatedUserDTO.getName());
+        user.setEmail(updatedUserDTO.getEmail());
 
-        return userRepository.save(user);
+        return UserMapper.toDTO(userRepository.save(user));
     }
 
     @Override

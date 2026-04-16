@@ -1,8 +1,10 @@
 package TaskManangement.demo.controller;
 
 
+import TaskManangement.demo.dto.UserDTO;
 import TaskManangement.demo.entity.User;
 import TaskManangement.demo.service.UserService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,39 +15,42 @@ public class UserController {
 
     private final UserService userService;
 
-    // Constructor Injection (correct way)
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    // CREATE USER
+    // CREATE
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
+        UserDTO createdUser = userService.createUser(userDTO);
+        return ResponseEntity.ok(createdUser);
     }
 
-    // GET ALL USERS
+    // GET ALL
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public ResponseEntity<List<UserDTO>> getAllUsers() {
+        return ResponseEntity.ok(userService.getAllUsers());
     }
 
-    // GET USER BY ID
+    // GET BY ID
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
+    public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.getUserById(id));
     }
 
-    // UPDATE USER
+    // UPDATE
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user) {
-        return userService.updateUser(id, user);
+    public ResponseEntity<UserDTO> updateUser(
+            @PathVariable Long id,
+            @RequestBody UserDTO userDTO) {
+
+        return ResponseEntity.ok(userService.updateUser(id, userDTO));
     }
 
-    // DELETE USER
+    // DELETE
     @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable Long id) {
+    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
-        return "User deleted successfully";
+        return ResponseEntity.ok("User deleted successfully");
     }
 }

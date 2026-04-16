@@ -1,18 +1,18 @@
 package TaskManangement.demo.service;
 
+import TaskManangement.demo.dto.UserDTO;
 import TaskManangement.demo.entity.User;
 
 import java.util.List;
 
 public interface UserService {
+    UserDTO createUser(UserDTO userDTO);
 
-    User createUser(User user);
+    List<UserDTO> getAllUsers();
 
-    List<User> getAllUsers();
+    UserDTO getUserById(Long id);
 
-    User getUserById(Long id);
-
-    User updateUser(Long id, User user);
+    UserDTO updateUser(Long id, UserDTO userDTO);
 
     void deleteUser(Long id);
 }
