@@ -1,14 +1,12 @@
 package TaskManangement.demo.dto;
 
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+
 public class UserDTO {
-    private Long id;
-    private String name;
-    private String email;
+    private Long userId;
+    private String userName;
+    private String userEmail;
+
 }
