@@ -10,13 +10,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TaskDTO {
-    private Long taskId;
+public class TaskResponseDTO {
+    private Long id;
     private String title;
     private String description;
-    private LocalDateTime deadline;
+
     private Status status;
-    private Priority priority;
+
 
     // Instead of full objects, use IDs
     private Long userId;

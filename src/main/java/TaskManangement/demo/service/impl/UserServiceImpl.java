@@ -1,7 +1,8 @@
 package TaskManangement.demo.service.impl;
 
 import TaskManangement.demo.Mapper.UserMapper;
-import TaskManangement.demo.dto.UserDTO;
+import TaskManangement.demo.dto.UserRequestDTO;
+import TaskManangement.demo.dto.UserResponseDTO;
 import TaskManangement.demo.entity.User;
 import TaskManangement.demo.repository.UserRepository;
 import TaskManangement.demo.service.UserService;
@@ -21,13 +22,13 @@ import java.util.stream.Collectors;
 @FieldDefaults(makeFinal = true,level = AccessLevel.PRIVATE)
 public class UserServiceImpl implements UserService {
 
-
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
+
     // CREATE
     @Override
-    public UserDTO createUser(UserDTO userDTO) {
+    public UserResponseDTO createUser(UserRequestDTO userDTO) {
 
         User user = userMapper.toEntity(userDTO);
 
@@ -38,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
     // GET BY ID
     @Override
-    public UserDTO getUserById(Long id) {
+    public UserResponseDTO getUserById(Long id) {
 
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -48,7 +49,7 @@ public class UserServiceImpl implements UserService {
 
     // GET ALL
     @Override
-    public List<UserDTO> getAllUsers() {
+    public List<UserResponseDTO> getAllUsers() {
 
         return userRepository.findAll()
                 .stream()
@@ -58,16 +59,16 @@ public class UserServiceImpl implements UserService {
 
     // UPDATE
     @Override
-    public UserDTO updateUser(Long id, UserDTO userDTO) {
+    public UserResponseDTO updateUser(Long id, UserRequestDTO userDTO) {
 
         User existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         userMapper.updateUserFromDto(userDTO, existingUser);
 
-        User savedUser = userRepository.save(existingUser);
+        User updatedUser = userRepository.save(existingUser);
 
-        return userMapper.toDTO(savedUser);
+        return userMapper.toDTO(updatedUser);
     }
 
     // DELETE
@@ -80,6 +81,4 @@ public class UserServiceImpl implements UserService {
 
         userRepository.deleteById(id);
     }
-
-
-}
+   }
