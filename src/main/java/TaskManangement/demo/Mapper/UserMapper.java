@@ -2,6 +2,7 @@ package TaskManangement.demo.Mapper;
 
 
 import TaskManangement.demo.dto.UserRequestDTO;
+import TaskManangement.demo.dto.UserResponseDTO;
 import TaskManangement.demo.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

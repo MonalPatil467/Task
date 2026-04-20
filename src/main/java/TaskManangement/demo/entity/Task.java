@@ -42,6 +42,5 @@ public class Task {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
-    private List<Notification> notifications;
+
 }

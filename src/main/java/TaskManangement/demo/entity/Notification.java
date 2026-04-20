@@ -25,6 +25,6 @@ public class Notification {
     private boolean sent;
 
     @ManyToOne
-    @JoinColumn(name = "task_id")
-    private Task task;
+    @JoinColumn(name = "user_id")
+    private User user;
 }

@@ -9,16 +9,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class NotificationDto {
-    private Long id;
-
+public class NotificationRequestDTO {
     private String message;
 
-    private Boolean sent;
-
-    private LocalDateTime createdAt;
-
-    // Use IDs instead of full objects
+   // @NotNull(message = "User ID is required")
     private Long userId;
-    private Long taskId;
+
+    private Boolean isRead; // o
 }

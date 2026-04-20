@@ -28,5 +28,8 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Task> tasks;
+
+    @OneToMany(mappedBy = "user",cascade=CascadeType.ALL)
+    private List<Notification> notifications;
 }
 
