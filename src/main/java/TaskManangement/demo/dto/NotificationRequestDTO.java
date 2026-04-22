@@ -15,5 +15,5 @@ public class NotificationRequestDTO {
    // @NotNull(message = "User ID is required")
     private Long userId;
 
-    private Boolean isRead; // o
+    //private Boolean isRead; // o
 }

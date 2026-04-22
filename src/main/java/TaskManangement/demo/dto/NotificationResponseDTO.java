@@ -10,6 +10,7 @@ import lombok.*;
 public class NotificationResponseDTO {
     private Long notificationId;
     private String message;
-    private Boolean isRead;
+    //private Boolean isRead;
     private Long userId;
+    private boolean isRead=false;
 }

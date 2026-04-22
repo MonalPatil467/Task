@@ -84,7 +84,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public void deleteTask(Long id) {
         if (!taskRepository.existsById(id)) {
             throw new RuntimeException("Task not found");
         }

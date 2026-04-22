@@ -4,6 +4,7 @@ package TaskManangement.demo.controller;
 import TaskManangement.demo.dto.UserRequestDTO;
 import TaskManangement.demo.dto.UserResponseDTO;
 import TaskManangement.demo.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "*")
+
 public class UserController {
 
     private final UserService userService;
