@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+</head>
+<body>
+
+<h1>Task Manager</h1>
+
+<!-- CREATE TASK -->
+<h2>Create Task</h2>
+<input id="title" placeholder="Title"><br>
+<input id="desc" placeholder="Description"><br>
+<input id="userId" placeholder="User ID"><br>
+<input id="categoryId" placeholder="Category ID"><br>
+<button onclick="createTask()">Create Task</button>
+
+<hr>
+
+<!-- LOAD TASKS -->
+<h2>Tasks</h2>
+<button onclick="loadTasks()">Load Tasks</button>
+<ul id="taskList"></ul>
+
+<hr>
+
+<!-- LOAD CATEGORIES -->
+<h2>Categories</h2>
+<button onclick="loadCategories()">Load Categories</button>
+<ul id="categoryList"></ul>
+
+<hr>
+
+<!-- LOAD NOTIFICATIONS -->
+<h2>Notifications</h2>
+<button onclick="loadNotifications()">Load Notifications</button>
+<ul id="notificationList"></ul>
+
+<script src="app.js"></script>
+
+</body>
+</html>

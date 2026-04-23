@@ -1,0 +1,80 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    padding: 20px;
+    color: #333;
+}
+
+/* HEADINGS */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* INPUT FIELDS */
+input {
+    display: block;
+    width: 250px;
+    padding: 8px;
+    margin: 5px 0 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* BUTTONS */
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* LISTS */
+ul {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+li {
+    background: white;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* BUTTON INSIDE LIST */
+li button {
+    background-color: #2196F3;
+}
+
+li button:hover {
+    background-color: #1976D2;
+}
+
+/* DIVIDER */
+hr {
+    margin: 20px 0;
+}
